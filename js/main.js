@@ -243,6 +243,7 @@ function commander(cmd) {
         $.getJSON("https://api.ipify.org?format=json", function (data) {
         $(".ip").text(data.ip);
         });
+        addLine("<br>", "color2", 0);
       break;
     default:
       addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);

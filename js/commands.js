@@ -53,6 +53,7 @@ help = [
   '<span class="command">secret</span>         Znajdz haslo',
   '<span class="command">projects</span>       Zobacz projekty',
   '<span class="command">history</span>        Historia komend',
+  '<span class="command">ip</span>             Pokaż IP',
   '<span class="command">help</span>           Przecież wiesz',
   '<span class="command">sort</span>           Wizualizacja sortowania bąbelkowego',
   '<span class="command">email</span>          Brak',
