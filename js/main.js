@@ -35,7 +35,7 @@ console.log();
 //Po kliknieciu
 
 function enterKey(e) {
-  console.log("enterKey"+e.keyCode);
+  //console.log("enterKey"+e.keyCode);
   // let keyCode = e.keyCode;
   // let chrCode = keyCode - 48 * Math.floor(keyCode / 48);
   // let chr = String.fromCharCode((96 <= keyCode && keyCode <= 105) ? keyCode-48 : keyCode);
@@ -209,6 +209,34 @@ function commander(cmd) {
       addLine("Opening GitHub...", "color2", 0);
       newTab(github);
       break;
+    case "sort":
+      const cond = document.getElementById('array') || false
+      if (cond) {
+        const newItem = document.createElement('div');
+        newItem.className = "podmiana";
+        newItem.innerHTML = "Posortowana"
+        document.getElementById('array').parentNode.replaceChild(newItem, document.getElementById('array'));
+        //document.getElementById('array').remove();
+      } else {
+          console.log("ok");
+      } 
+        addLine("Generating an array...", "color2", 80);
+        addLine("<div id='array'></div>","no-animation",120);
+        addLine("<br>","no-animation",120);
+        // generator
+        setTimeout(function() {
+  
+          generatearray();
+          BubbleSort();
+          
+          
+          
+        }, 1300);
+        
+        addLine("Sorting...", "color2", 80);
+      // bubble
+        
+      break;
     default:
       addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
       break;
@@ -279,4 +307,105 @@ function mute(){
   document.getElementById("audio").muted=true;
   
   
+}
+
+
+
+
+
+
+
+
+//generoqwanie
+function generatearray() {
+  var container = document.getElementById("array");
+	for (var i = 0; i < 20; i++) {
+
+		
+		var value = Math.ceil(Math.random() * 100);
+
+		// tworzenie diva
+		var array_ele = document.createElement("div");
+
+		// dodanie klasy block
+		array_ele.classList.add("block");
+
+		// dodanie cssa
+		array_ele.style.height = `${value * 3}px`;
+		array_ele.style.transform = `translate(${i * 30}px)`;
+
+		// 
+		// rozmiar
+		var array_ele_label = document.createElement("label");
+		array_ele_label.classList.add("block_id");
+		array_ele_label.innerText = value;
+
+		// dodanie do index.html
+		array_ele.appendChild(array_ele_label);
+		container.appendChild(array_ele);
+	}
+}
+
+// swap 
+function swap(el1, el2) {
+  var container = document.getElementById("array");
+	return new Promise((resolve) => {
+
+		// For exchanging styles of two blocks
+		var temp = el1.style.transform;
+		el1.style.transform = el2.style.transform;
+		el2.style.transform = temp;
+
+		window.requestAnimationFrame(function() {
+
+			// wait 
+			setTimeout(() => {
+				container.insertBefore(el2, el1);
+				resolve();
+			}, 150);
+		});
+	});
+}
+
+// buble sort asynchroniczny 
+async function BubbleSort(delay = 10) {
+	var blocks = document.querySelectorAll(".block");
+  var container = document.getElementById("array");
+	// algorytm
+	for (var i = 0; i < blocks.length; i += 1) {
+		for (var j = 0; j < blocks.length - i - 1; j += 1) {
+
+			// zmiana tla
+			// porownanych blokow
+			blocks[j].style.backgroundColor = "#FF4949";
+			blocks[j + 1].style.backgroundColor = "#FF4949";
+
+			// w8 1s
+			await new Promise((resolve) =>
+				setTimeout(() => {
+					resolve();
+				}, delay)
+			);
+
+			console.log("run");
+			var value1 = Number(blocks[j].childNodes[0].innerHTML);
+			var value2 = Number(blocks[j + 1]
+						.childNodes[0].innerHTML);
+
+			// porownanie wartosci 2 blokow
+			if (value1 > value2) {
+				await swap(blocks[j], blocks[j + 1]);
+				blocks = document.querySelectorAll(".block");
+			}
+
+			// zmiana koloru pierwszego
+			blocks[j].style.backgroundColor = "#6b5b95";
+			blocks[j + 1].style.backgroundColor = "#6b5b95";
+		}
+
+		//zmiana koloru wiekszegho
+		
+		blocks[blocks.length - i - 1]
+				.style.backgroundColor = "#13CE66";
+	}
 }

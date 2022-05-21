@@ -195,3 +195,35 @@ body {
 center{
   animation: typing 0 steps(30, end);
 }
+#array {
+  color: #519975;
+	
+	height: 413px;
+	width: 598px;
+	margin: auto;
+	position: relative;
+	margin-top: 64px;
+}
+
+.block {
+	width: 28px;
+	background-color: #6b5b95;
+	position: absolute;
+	bottom: 0px;
+	transition: 0.2s all ease;
+}
+
+.block_id {
+	position: absolute;
+	color: #519975;
+	margin-top: -20px;
+	width: 100%;
+	text-align: center;
+}
+.podmiana{
+  position: absolute;
+	color: #519975;
+	margin-top: -20px;
+	width: 100%;
+	text-align: center;
+}
