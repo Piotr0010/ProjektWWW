@@ -123,7 +123,7 @@ function commander(cmd) {
       loopLines(projects, "color2 margin", 80);
       break;
     case "password":
-      addLine("<span class=\"inherit\"> Lol! You're joking, right? You\'re gonna have to try harder than that!đ</span>", "error", 100);
+      addLine("<span class=\"inherit\"> xD </span>", "error", 100);
       break;
     case "history":
       addLine("<br>", "", 0);
