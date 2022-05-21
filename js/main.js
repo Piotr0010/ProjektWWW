@@ -22,7 +22,7 @@ addLine(discord[0], "no-animation", 1200);
 window.addEventListener("keyup", enterKey);
 
 console.log(
-  "%cEo ",
+  "%cAle ze hasło to papiezgituwa ",
   "color: #04ff00; font-weight: bold; font-size: 24px;"
 );
 
