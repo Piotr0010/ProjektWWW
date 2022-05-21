@@ -30,7 +30,7 @@ social = [
 
 secret = [
   "<br>",
-  '<span class="command">sudo</span>           Only use if you\'re admin',
+  '<span class="command">Papiezgituwa</span>           <img src="papa.png" alt="Papiezgituwa" width="500" height="500">',
   "<br>"
 ];
 
