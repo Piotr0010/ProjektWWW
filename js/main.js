@@ -57,7 +57,7 @@ function enterKey(e) {
       setTimeout(function() {
   
         document.getElementById('audio').load();
-        document.getElementById('audio').play()
+        document.getElementById('audio').play2()
       }, 100);
       
       loopLines(secret, "color2 margin", 120);
