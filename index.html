@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ9TR5T9S2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
     
-      gtag('config', 'G-QJ9TR5T9S2');
-    </script>
+    
+    
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,6 +12,7 @@
     <title>Yastor | Terminal</title>
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="icon" type="image/x-icon" href="img/fav-icon.png" />
+    
   </head>
   <body>
     <div class="black">
@@ -38,7 +33,7 @@
     <div id="terminal">
       <a id="before"></a>
     </div>
-    <div id="command" onclick="$('texter').focus();">
+    <div id="command" onclick="s('texter').focus();">
       <textarea
         type="text"
         id="texter"
@@ -58,6 +53,6 @@
     <script src="js/caret.js"></script>
     <script src="js/commands.js"></script>
     <script src="js/main.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>

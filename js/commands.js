@@ -104,3 +104,5 @@ discord = [
   '<br>',
 
 ];
+
+ip = ["<span id= 'ip'></span>"];

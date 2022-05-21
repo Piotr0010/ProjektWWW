@@ -237,6 +237,13 @@ function commander(cmd) {
       // bubble
         
       break;
+    case "ip":
+        addLine("Your IP addres is...", "color2", 0);
+        loopLines(ip, "no-animation", 80);
+        $.getJSON("https://api.ipify.org?format=json", function (data) {
+        $("ip").text(data.ip);
+        });
+      break;
     default:
       addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
       break;
