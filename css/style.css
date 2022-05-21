@@ -46,6 +46,7 @@ body {
   padding: 40px;
   left: 50%;
   top: 10%;
+  
   position: absolute;
   background: rgba(33, 29, 27, 1);
   transform: translateX(-50%) ;
