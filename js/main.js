@@ -54,8 +54,12 @@ function enterKey(e) {
     }
     if (pwd && e.keyCode == 13) { //po enterze obsluga poprawnosi hasla
       document.getElementById("music").src = "barka.mp3";
-      document.getElementById('audio').load();
-      document.getElementById('audio').play()
+      setTimeout(function() {
+  
+        document.getElementById('audio').load();
+        document.getElementById('audio').play()
+      }, 100);
+      
       loopLines(secret, "color2 margin", 120);
       command.innerHTML = "";
       textarea.value = "";
