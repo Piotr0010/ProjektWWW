@@ -54,6 +54,7 @@ help = [
   '<span class="command">projects</span>       Zobacz projekty',
   '<span class="command">history</span>        Historia komend',
   '<span class="command">help</span>           Przecież wiesz',
+  '<span class="command">sort</span>           Wizualizacja sortowania bąbelkowego',
   '<span class="command">email</span>          Brak',
   '<span class="command">clear</span>          Clear terminal',
   '<span class="command">banner</span>         Pokaż banner',
