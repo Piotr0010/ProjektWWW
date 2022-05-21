@@ -70,8 +70,8 @@ function enterKey(e) {
     if (e.keyCode == 13) {
       commands.push(command.innerHTML); //lista uzytych
       git = commands.length; // ile uzyto komend
-      addLine("visitor@fkcodes.com:~$ " + command.innerHTML, "no-animation", 0);
-      console.log("visitor@fkcodes.com:~$ " + command.innerHTML);
+      addLine("zaq1@egzaminy-zawodowe:~$ " + command.innerHTML, "no-animation", 0);
+      console.log("zaq1@egzaminy-zawodowe:~$ " + command.innerHTML);
       commander(command.innerHTML.toLowerCase());
       command.innerHTML = "";
       textarea.value = "";
