@@ -27,7 +27,7 @@ body {
     height: 200%;
     overflow: hidden;
     z-index: -100;
-    filter:opacity(70%);
+    filter:opacity(0%);
     
     
 }
@@ -47,7 +47,7 @@ body {
   left: 50%;
   top: 10%;
   position: absolute;
-  background: rgba(0, 0, 0, 0.705);
+  background: rgba(33, 29, 27, 1);
   transform: translateX(-50%) ;
   
   
