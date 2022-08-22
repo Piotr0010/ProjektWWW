@@ -70,7 +70,7 @@ function enterKey(e) {
     if (e.keyCode == 13) {
       commands.push(command.innerHTML); //dodanie do tablicy listy uzytych komend
       git = commands.length; // ile uzyto komend
-      addLine("zaq1@webTerminal:~$ " + command.innerHTML, "no-animation", 0);
+      addLine("zaq1@my-terminal:~$ " + command.innerHTML, "no-animation", 0);
       //console.log("zaq1@webTerminal:~$ " + command.innerHTML);
       commander(command.innerHTML.toLowerCase());
       command.innerHTML = "";
@@ -130,7 +130,7 @@ function commander(cmd) {
       pw = true;
       break;
     case "projekty":
-      loopLines(projekty, "color2 margin", 80);
+      loopLines(projekty, "error margin", 80);
       break;
     case "password":
       addLine("<span class=\"inherit\"> xD </span>", "error", 100);
@@ -141,7 +141,9 @@ function commander(cmd) {
       addLine("<br>", "command", 80 * commands.length + 50);
       break;
     case "email":
-      addLine('Brak danych', "color2", 80);
+      addLine("<br>", "", 10);
+      addLine('Brak danych', "color2 margin", 80);
+      addLine("<br>", "", 100);
       textarea.value = "";
       break;
     
@@ -151,6 +153,15 @@ function commander(cmd) {
       addLine(baner[1], "no-animation", 1100);
       textarea.focus();
       break;
+    case "alert":
+      addLine("Wyświetlanie aletru...", "color2", 80);
+      addLine("<br>","no-animation",120);
+      const toastLiveExample = document.getElementById('liveToast');
+      const toast = new bootstrap.Toast(toastLiveExample);
+
+      toast.show();
+
+        break;
     case "clear":
       setTimeout(function() {
         terminal.innerHTML = '<a id="before"></a>';
@@ -183,12 +194,12 @@ function commander(cmd) {
         addLine("Twój adres ip to...", "color2", 0);
         loopLines(ip, "no-animation", 80);
         $.getJSON("https://api.ipify.org?format=json", function (data) {
-        $(".ip").text(data.ip);
+        $("#ip").text(data.ip);
         });
         addLine("<br>", "color2", 0);
         break;
     default:
-        addLine("<span class=\"inherit\">Błędna komenda, aby wyświetlić listę dostępnych komend wpisz<span class=\"command\">'help'</span>.</span>", "error", 100);
+        addLine("<span class=\"inherit\">Błędna komenda, aby wyświetlić listę dostępnych komend wpisz <span class=\"command\">'help'</span>.</span>", "error", 100);
         break;
   }
 }
