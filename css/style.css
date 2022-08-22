@@ -106,7 +106,7 @@ body {
   }
   #liner::before {
     color: #519975;
-    content: "zaq1@egzaminy-zawodowe:~$";
+    content: "zaq1@webTerminal:~$";
   }
   #liner.password::before {
     content: "Password:";
