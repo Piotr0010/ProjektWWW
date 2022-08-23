@@ -192,9 +192,9 @@ function commander(cmd) {
          break;
     case "ip":
         addLine("Twój adres ip to...", "color2", 0);
-        loopLines(ip, "no-animation", 80);
+        loopLines(ip, "no-animation inherit", 80);
         $.getJSON("https://api.ipify.org?format=json", function (data) {
-        $("#ip").text(data.ip);
+        $(".ip").text(data.ip);
         });
         addLine("<br>", "color2", 0);
         break;

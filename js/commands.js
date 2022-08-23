@@ -71,6 +71,6 @@ baner = [
 
 
 
-ip = ["<span class= 'inherit' id = 'ip'></span>"];
+ip = ["<span class= 'ip' id = 'ip'></span>"];
 
 email = []
