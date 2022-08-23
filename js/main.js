@@ -123,7 +123,7 @@ function commander(cmd) {
       loopLines(ostronie, "color2 margin", 80);
       break;    
     case "sudo":
-      addLine("Niestety nie jesteś administratorem....", "color2", 80);       
+      addLine("Niestety nie jesteś administratorem...", "color2", 80);       
       break;
     case "secret":
       liner.classList.add("password");
@@ -133,7 +133,7 @@ function commander(cmd) {
       loopLines(projekty, "error margin", 80);
       break;
     case "password":
-      addLine("<span class=\"inherit\"> xD </span>", "error", 100);
+      addLine("<span class=\"inherit\"> Szukaj dalej </span>", "error", 100);
       break;
     case "historia":
       addLine("<br>", "", 0);
@@ -153,11 +153,11 @@ function commander(cmd) {
       addLine(baner[1], "no-animation", 1100);
       textarea.focus();
       break;
-    case "alert":
+    case "alert": //bootstrap
       addLine("Wyświetlanie aletru...", "color2", 80);
       addLine("<br>","no-animation",120);
-      const toastLiveExample = document.getElementById('liveToast');
-      const toast = new bootstrap.Toast(toastLiveExample);
+      const toastLive = document.getElementById('liveToast');
+      const toast = new bootstrap.Toast(toastLive);
 
       toast.show();
 
@@ -192,9 +192,9 @@ function commander(cmd) {
          break;
     case "ip":
         addLine("Twój adres ip to...", "color2", 0);
-        loopLines(ip, "no-animation inherit", 80);
+        loopLines(ip, "no-animation", 80);
         $.getJSON("https://api.ipify.org?format=json", function (data) {
-        $(".ip").text(data.ip);
+        $("#ip").text(data.ip);
         });
         addLine("<br>", "color2", 0);
         break;
@@ -217,8 +217,8 @@ function addLine(text, style, time) {
   }
   setTimeout(function() {
     var next = document.createElement("p");
-    next.innerHTML = t;
-    next.className = style;
+    next.innerHTML = t; //dodanie zawartosci
+    next.className = style; //dodanie stylu wczesniej opisanego w css
 
     before.parentNode.insertBefore(next, before);
 
@@ -253,33 +253,33 @@ function mute(){
 //-----------Sortowanie bąbelkowe------------------
 //generoqwanie
 function generatearray() {
-  var container = document.getElementById("array");
+  var kontener = document.getElementById("array");
 	for (var i = 0; i < 20; i++) {
 
 		
-		var value = Math.ceil(Math.random() * 100);
+		var wartosc = Math.ceil(Math.random() * 100);
 
 		// tworzenie diva
-		var array_ele = document.createElement("div");
+		var element_tablicy = document.createElement("div");
 
 		// dodanie klasy block
-		array_ele.classList.add("block");
+		element_tablicy.classList.add("block");
 		// dodanie cssa
-		array_ele.style.height = `${value * 3}px`;
-		array_ele.style.transform = `translate(${i * 30}px)`; 
+		element_tablicy.style.height = `${wartosc * 3}px`;
+		element_tablicy.style.transform = `translate(${i * 30}px)`; 
 		// rozmiar
-		var array_ele_label = document.createElement("label");
-		array_ele_label.classList.add("block_id");
-		array_ele_label.innerText = value;
+		var element_label = document.createElement("label");
+		element_label.classList.add("block_id");
+		element_label.innerText = wartosc;
 
-		array_ele.appendChild(array_ele_label);
-		container.appendChild(array_ele);
+		element_tablicy.appendChild(element_label);
+		kontener.appendChild(element_tablicy);
 	}
 }
 
 // swap 
 function swap(el1, el2) {
-  var container = document.getElementById("array");
+  var kontener = document.getElementById("array");
 	return new Promise((resolve) => {
 
 		// zamiana stylów dwóch bloków
@@ -291,7 +291,7 @@ function swap(el1, el2) {
 
 			// wait 
 			setTimeout(() => {
-				container.insertBefore(el2, el1);
+				kontener.insertBefore(el2, el1);
 				resolve();
 			}, 150);
 		});
@@ -301,16 +301,16 @@ function swap(el1, el2) {
 // buble sort async
 // faktyczny algorytm sortowania 
 async function BubbleSort(delay = 10) {
-	var blocks = document.querySelectorAll(".block");
-  var container = document.getElementById("array");
+	var bloki = document.querySelectorAll(".block");
+  var kontener = document.getElementById("array");
 	// algorytm
-	for (var i = 0; i < blocks.length; i += 1) {
-		for (var j = 0; j < blocks.length - i - 1; j += 1) {
+	for (var i = 0; i < bloki.length; i += 1) {
+		for (var j = 0; j < bloki.length - i - 1; j += 1) {
 
 			// zmiana tla
 			// porownanych blokow
-			blocks[j].style.backgroundColor = "#FF4949";
-			blocks[j + 1].style.backgroundColor = "#FF4949";
+			bloki[j].style.backgroundColor = "#FF4949";
+			bloki[j + 1].style.backgroundColor = "#FF4949";
 
 			// w8 1s
 			await new Promise((resolve) =>
@@ -320,24 +320,24 @@ async function BubbleSort(delay = 10) {
 			);
 
 			//console.log("run");
-			var value1 = Number(blocks[j].childNodes[0].innerHTML);
-			var value2 = Number(blocks[j + 1]
+			var wart1 = Number(bloki[j].childNodes[0].innerHTML);
+			var wart2 = Number(bloki[j + 1]
 						.childNodes[0].innerHTML);
 
 			// porownanie wartosci 2 blokow
-			if (value1 > value2) {
-				await swap(blocks[j], blocks[j + 1]);
-				blocks = document.querySelectorAll(".block");
+			if (wart1 > wart2) {
+				await swap(bloki[j], bloki[j + 1]);
+				bloki = document.querySelectorAll(".block");
 			}
 
 			// zmiana koloru pierwszego
-			blocks[j].style.backgroundColor = "#6b5b95";
-			blocks[j + 1].style.backgroundColor = "#6b5b95";
+			bloki[j].style.backgroundColor = "#6b5b95";
+			bloki[j + 1].style.backgroundColor = "#6b5b95";
 		}
 
 		//zmiana koloru wiekszegho
 		
-		blocks[blocks.length - i - 1]
+		bloki[bloki.length - i - 1]
 				.style.backgroundColor = "#13CE66";
 	}
 }
