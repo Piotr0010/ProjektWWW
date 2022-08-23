@@ -41,7 +41,7 @@
     <div class="container-fluid mt-5 d-flex">
         <div class="row d-flex align-items-center justify-content-center " >
         <div class="card bg-dark mx-5 mb-5  col-sm-4" style="padding-left: 0; padding-right: 0;">
-            <img src="img/napis.png" class="card-img-top  " alt="...">
+            <img src="img/napis.png" class="card-img-top  border border-2 border-dark" alt="napis ze znakow ascii">
             <div class="card-body">
               <h5 class="card-title">Napis z ASCII</h5>
               <p class="card-text">Tekst 3D został stworzony przy pomocy odpowiedniego generatora.</p>
@@ -50,39 +50,39 @@
           </div>
 
         <div class="card bg-dark mx-5 mb-5  col-sm-4" style="padding-left: 0; padding-right: 0;">
-            <img src="img/animacja.gif" class="card-img-top" alt="...">
+            <img src="img/animacja.gif" class="card-img-top border border-2 border-dark" alt="...">
             <div class="card-body">
               <h5 class="card-title">Animacja tekstu</h5>
               <p class="card-text">Animacja została stworzona za pomocą kilku funkcji napisanych w JavaScript.</p>
-              <a href="#" class="btn btn-primary">Generator</a>
+              <a href="js/main.js" target="_blank" class="btn btn-primary">Kod</a>
             </div>
           </div>
         <div class="card bg-dark mx-5 mb-5  col-sm-4" style="padding-left: 0; padding-right: 0;">
-            <img src="img/napis.png" class="card-img-top" alt="..." >
+            <img src="img/ip.png" class="card-img-top border border-2 border-dark" alt="..." >
             <div class="card-body">
               <h5 class="card-title">Adres IP</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text">Krótki kod jQuery wykorzystujące API pozwala na pokazanie twojego adresu IP.</p>
+              <a href="index.html"   target="_blank" class="btn btn-primary">Testuj</a>
             </div>
           </div>
           <div class="card bg-dark mx-5 mb-5  col-sm-4" style="padding-left: 0; padding-right: 0;">
-            <img src="img/napis.png" class="card-img-top img-fluid" alt="...">
+            <img src="img/alert.png" class="card-img-top border border-2 border-dark" alt="...">
             <div class="card-body">
               <h5 class="card-title">Bootstrap</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text">Specjalne wyskakujące okienko stworzone za pomocą Bootstrap.</p>
+              <button type="button" class="btn btn-primary" id="liveToastBtn">Pokaż alert</button>
             </div>
           </div>
           <div class="card bg-dark mx-5 mb-5  col-sm-4" style="padding-left: 0; padding-right: 0;">
-            <img src="img/napis.png" class="card-img-top" alt="...">
+            <img src="img/sortowanie.gif" class="card-img-top border border-2 border-dark" alt="...">
             <div class="card-body">
               <h5 class="card-title">Sortowanie</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text">Wizualizacja sortowania bąbelkowego została stworzona za pomocą JavaScript.</p>
+              <a href="index.html"  target="_blank" class="btn btn-primary">Testuj</a>
             </div>
           </div>
           <div class="card bg-dark mx-5 mb-5  col-sm-4" style="padding-left: 0; padding-right: 0;">
-            <img src="img/napis.png" class="card-img-top" alt="...">
+            <img src="img/napis.png" class="card-img-top border border-2 border-dark" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -93,6 +93,21 @@
     </div>
   
 </div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3 " >
+  <div id="liveToast" class="toast bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="/img/fav-icon.png" class="rounded me-2 w-25" alt="...">
+      <strong class="me-auto">MyTerminal</strong>
+      <small>1s temu</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Witaj na stronie MyTerminal.
+    </div>
+  </div>
+</div>
+
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
       <script src="toast.js"></script>
     </body>
