@@ -4,7 +4,7 @@ var command = document.getElementById("typer");
 var textarea = document.getElementById("texter"); 
 var terminal = document.getElementById("terminal");
 
-var git = 0;
+var ile = 0;
 var pw = false; //tryb hasla
 let pwd = false;
 var commands = []; 
@@ -49,9 +49,6 @@ function enterKey(e) {
       pwd = true;
     }
     if (pwd && e.keyCode == 13) { //po enterze obsluga poprawnosi hasla
-      
-      
-      
       loopLines(secret, "color2 margin", 120);
       command.innerHTML = "";
       textarea.value = "";
@@ -69,25 +66,25 @@ function enterKey(e) {
   } else {
     if (e.keyCode == 13) {
       commands.push(command.innerHTML); //dodanie do tablicy listy uzytych komend
-      git = commands.length; // ile uzyto komend
+      ile = commands.length; // ile uzyto komend
       addLine("zaq1@my-terminal:~$ " + command.innerHTML, "no-animation", 0);
-      //console.log("zaq1@webTerminal:~$ " + command.innerHTML);
+      //console.log("zaq1@Terminal:~$ " + command.innerHTML);
       commander(command.innerHTML.toLowerCase());
       command.innerHTML = "";
       textarea.value = "";
     }
     //dzialanie strzalek, czyli wyciąganie z wcześniej utworzonej tablicy odpowiednich elementów 
-    if (e.keyCode == 38 && git != 0) {
-      git -= 1;
-      textarea.value = commands[git];
+    if (e.keyCode == 38 && ile != 0) {
+      ile -= 1;
+      textarea.value = commands[ile];
       command.innerHTML = textarea.value;
     }
-    if (e.keyCode == 40 && git != commands.length) {
-      git += 1;
-      if (commands[git] === undefined) {
+    if (e.keyCode == 40 && ile != commands.length) {
+      ile += 1;
+      if (commands[ile] === undefined) {
         textarea.value = "";
       } else {
-        textarea.value = commands[git];
+        textarea.value = commands[ile];
       }
       command.innerHTML = textarea.value;
     }
@@ -123,16 +120,16 @@ function commander(cmd) {
       loopLines(ostronie, "color2 margin", 80);
       break;    
     case "sudo":
-      addLine("Niestety nie jesteś administratorem...", "color2", 80);       
+      addLine("Niestety nie jesteś administratorem...", "error", 80);       
       break;
-    case "secret":
+    case "sekret":
       liner.classList.add("password");
       pw = true;
       break;
     case "projekty":
       loopLines(projekty, "error margin", 80);
       break;
-    case "password":
+    case "hasło":
       addLine("<span class=\"inherit\"> Szukaj dalej </span>", "error", 100);
       break;
     case "historia":
@@ -146,9 +143,7 @@ function commander(cmd) {
       addLine("<br>", "", 100);
       textarea.value = "";
       break;
-    
     case "baner":
-      
       loopLines(baner, "no-animation", 80);
       addLine(baner[1], "no-animation", 1100);
       textarea.focus();
@@ -158,9 +153,7 @@ function commander(cmd) {
       addLine("<br>","no-animation",120);
       const toastLive = document.getElementById('liveToast');
       const toast = new bootstrap.Toast(toastLive);
-
       toast.show();
-
         break;
     case "clear":
       setTimeout(function() {
@@ -192,9 +185,9 @@ function commander(cmd) {
          break;
     case "ip":
         addLine("Twój adres ip to...", "color2", 0);
-        loopLines(ip, "no-animation", 80);
+        loopLines(ip, "no-animation inherit", 80);
         $.getJSON("https://api.ipify.org?format=json", function (data) {
-        $("#ip").text(data.ip);
+        $(".ip").text(data.ip);
         });
         addLine("<br>", "color2", 0);
         break;
