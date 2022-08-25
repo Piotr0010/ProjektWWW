@@ -21,7 +21,7 @@ baner = [
 
 ostronie = [
   "<br>",
-  "Jest to strona imutująca wizualnie terminal znany chociażby z systemu linux.",
+  "Jest to strona imutująca terminal znany chociażby z systemu linux.",
   "Została stworzona jako projekt koncowy z przedmiotu Podstawy projektowania stron www.",
   "<br>"
 ];

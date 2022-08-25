@@ -9,23 +9,21 @@ var pw = false; //tryb hasla
 let pwd = false;
 var commands = []; 
 
-setTimeout(function() {
-  
+setTimeout(function() { 
   loopLines(baner, "", 80);
-  
-  
-  textarea.focus();
-  
+  textarea.focus();  
 }, 100);
+
+
 addLine("   <br>", "no-animation", 1200);
-//czeka na input
+//input
 window.addEventListener("keyup", enterKey);
 
+//sekret
 console.log(
   "%cHaslo: zaq1@WSX ",
   "color: #04ff00; font-weight: bold; font-size: 24px;"
 );
-
 
 //init
 textarea.value = "";
@@ -98,7 +96,7 @@ function commander(cmd) {
       break;
     case "muzyka":
       addLine('Włączanie muzyki...', "color2", 80);
-      document.getElementById("music").src = "music.mp3";
+      document.getElementById("music").src = "zasoby/music.mp3";
       document.getElementById('audio').load();
       play();
       break;
@@ -165,8 +163,8 @@ function commander(cmd) {
       const cond = document.getElementById('array') || false
       if (cond) {
         const newItem = document.createElement('div');
-        newItem.className = "podmiana";
-        newItem.innerHTML = "Posortowana"
+        // newItem.className = "podmiana";
+        // newItem.innerHTML = "Posortowana"
         document.getElementById('array').parentNode.replaceChild(newItem, document.getElementById('array'));
         //document.getElementById('array').remove();
       } else {
@@ -225,8 +223,8 @@ function loopLines(name, style, time) {
   });
 }
 
-
-var  audioeo = document.getElementById("audio");
+//audio 
+var audioeo = document.getElementById("audio");
 function play(){
     if(document.getElementById("audio").muted===true){
         document.getElementById('audio').play() 
@@ -243,18 +241,16 @@ function mute(){
   document.getElementById('audio').play() 
   document.getElementById("audio").muted=true;
 }
+
+
 //-----------Sortowanie bąbelkowe------------------
 //generoqwanie
 function generatearray() {
   var kontener = document.getElementById("array");
 	for (var i = 0; i < 20; i++) {
-
-		
 		var wartosc = Math.ceil(Math.random() * 100);
-
 		// tworzenie diva
 		var element_tablicy = document.createElement("div");
-
 		// dodanie klasy block
 		element_tablicy.classList.add("block");
 		// dodanie cssa
@@ -264,7 +260,6 @@ function generatearray() {
 		var element_label = document.createElement("label");
 		element_label.classList.add("block_id");
 		element_label.innerText = wartosc;
-
 		element_tablicy.appendChild(element_label);
 		kontener.appendChild(element_tablicy);
 	}
@@ -274,14 +269,11 @@ function generatearray() {
 function swap(el1, el2) {
   var kontener = document.getElementById("array");
 	return new Promise((resolve) => {
-
 		// zamiana stylów dwóch bloków
 		var temp = el1.style.transform;
 		el1.style.transform = el2.style.transform;
 		el2.style.transform = temp;
-
 		window.requestAnimationFrame(function() {
-
 			// wait 
 			setTimeout(() => {
 				kontener.insertBefore(el2, el1);
@@ -299,37 +291,30 @@ async function BubbleSort(delay = 10) {
 	// algorytm
 	for (var i = 0; i < bloki.length; i += 1) {
 		for (var j = 0; j < bloki.length - i - 1; j += 1) {
-
 			// zmiana tla
 			// porownanych blokow
 			bloki[j].style.backgroundColor = "#FF4949";
 			bloki[j + 1].style.backgroundColor = "#FF4949";
-
 			// w8 1s
 			await new Promise((resolve) =>
 				setTimeout(() => {
 					resolve();
 				}, delay)
 			);
-
 			//console.log("run");
 			var wart1 = Number(bloki[j].childNodes[0].innerHTML);
 			var wart2 = Number(bloki[j + 1]
 						.childNodes[0].innerHTML);
-
 			// porownanie wartosci 2 blokow
 			if (wart1 > wart2) {
 				await swap(bloki[j], bloki[j + 1]);
 				bloki = document.querySelectorAll(".block");
 			}
-
 			// zmiana koloru pierwszego
 			bloki[j].style.backgroundColor = "#6b5b95";
 			bloki[j + 1].style.backgroundColor = "#6b5b95";
 		}
-
-		//zmiana koloru wiekszegho
-		
+		//zmiana koloru wiekszegho	
 		bloki[bloki.length - i - 1]
 				.style.backgroundColor = "#13CE66";
 	}
